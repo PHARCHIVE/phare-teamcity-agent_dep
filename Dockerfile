@@ -12,7 +12,7 @@ RUN dnf install -y git openssl-devel && \
     cd mold && make -j && make install && cd .. && rm -rf mold
 
 RUN eval `modulecmd bash load mpi/openmpi-x86_64` && \
-    git clone https://github.com/llnl/samrai -b master samrai --recursive --depth 10 && \
+    git clone https://github.com/llnl/samrai -b develop  samrai --recursive --depth 10 && \
     cd samrai && mkdir build && cd build && \
     cmake .. \
       -DENABLE_OPENMP=OFF -DENABLE_TESTS=OFF -DENABLE_SAMRAI_TESTS=OFF \
