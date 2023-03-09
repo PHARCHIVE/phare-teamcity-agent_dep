@@ -20,3 +20,10 @@ RUN eval `modulecmd bash load mpi/openmpi-x86_64` && \
       -DCMAKE_BUILD_TYPE=RelWithDebInfo && \
     make -j && make install && cd ../.. && rm -rf samrai
 
+
+# SAMRAI doesn't find MPI for us anymore properly for some reason
+RUN ln -s /usr/lib64/openmpi/lib/libmpi_cxx.so /usr/local/lib64
+RUN ln -s /usr/lib64/openmpi/lib/libmpi_usempif08.so /usr/local/lib64
+RUN ln -s /usr/lib64/openmpi/lib/libmpi_usempi_ignore_tkr.so /usr/local/lib64
+RUN ln -s /usr/lib64/openmpi/lib/libmpi_mpifh.so /usr/local/lib64
+RUN ln -s /usr/lib64/openmpi/lib/libmpi.so /usr/local/lib64
