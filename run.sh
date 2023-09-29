@@ -1,9 +1,12 @@
+
+set -ex
+
 dnf install -y git openssl-devel
 
 cd $HOME
 
-git clone https://github.com/rui314/mold.git -b v1.0.1
-(cd mold && make -j && make install)
+git clone https://github.com/rui314/mold.git -b main --depth 10
+(cd mold && mkdir build && cd build && cmake .. && make -j && make install)
 rm -rf mold
 
 eval `modulecmd bash load mpi/openmpi-x86_64`
