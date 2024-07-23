@@ -14,8 +14,11 @@ git clone https://github.com/llnl/samrai -b develop samrai --recursive --depth 1
   cmake .. \
   -DENABLE_OPENMP=OFF -DENABLE_TESTS=OFF -DENABLE_SAMRAI_TESTS=OFF \
   -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=true \
-  -DCMAKE_BUILD_TYPE=RelWithDebInfo
-  make -j && make install
+  -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+  -DDEBUG_INITIALIZE_UNDEFINED=ON   \
+  -DDEBUG_CHECK_ASSERTIONS=ON       \
+  -DDEBUG_CHECK_DIM_ASSERTIONS=ON
+  make -j && make install VERBOSE=1
 )
 rm -rf samrai
 
