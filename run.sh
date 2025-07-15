@@ -20,7 +20,7 @@ git clone https://github.com/llnl/samrai -b develop samrai --recursive --depth 1
   -DCMAKE_BUILD_TYPE=RelWithDebInfo \
   -DDEBUG_INITIALIZE_UNDEFINED=ON   \
   -DDEBUG_CHECK_ASSERTIONS=ON       \
-  -DDEBUG_CHECK_DIM_ASSERTIONS=ON
+  -DDEBUG_CHECK_DIM_ASSERTIONS=ON -DBUILD_SHARED_LIBS=ON
   make -j && make install VERBOSE=1
 )
 rm -rf samrai
