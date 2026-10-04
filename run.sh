@@ -16,7 +16,7 @@ git clone https://github.com/llnl/samrai -b develop samrai --recursive --depth 1
   -DCMAKE_BUILD_TYPE=RelWithDebInfo \
   -DDEBUG_INITIALIZE_UNDEFINED=ON   \
   -DDEBUG_CHECK_ASSERTIONS=ON       \
-  -DDEBUG_CHECK_DIM_ASSERTIONS=ON -DBUILD_SHARED_LIBS=ON
+  -DDEBUG_CHECK_DIM_ASSERTIONS=ON -DBUILD_SHARED_LIBS=ON -DCMAKE_POLICY_VERSION_MINIMUM=3.5 # CMAKE_POLICY_VERSION_MINIMUM is because SAMRAI cmake version is too old
   make -j && make install VERBOSE=1
 )
 rm -rf samrai
