@@ -1,5 +1,6 @@
+ARG REGISTRY=registry.lpp.polytechnique.fr:5443
 ARG RELEASE=40
-FROM 129.104.6.165:32219/phare/teamcity-fedora:$RELEASE
+FROM ${REGISTRY}/phare/teamcity-fedora:$RELEASE
 
 ENV OMPI_ALLOW_RUN_AS_ROOT=1
 ENV OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
